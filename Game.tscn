@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Prefabs/GUI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Prefabs/Ground.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Prefabs/NewRecord.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Prefabs/StartButton.tscn" type="PackedScene" id=5]
+
+[node name="Game" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( -50, 16 )
+
+[node name="Ground" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, 75 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 50, -30 )
+current = true
+zoom = Vector2( 0.4, 0.4 )
+
+[node name="GUI" parent="Camera2D" instance=ExtResource( 2 )]
+margin_left = -187.322
+margin_top = -106.565
+margin_right = 120.678
+margin_bottom = 358.435
+rect_scale = Vector2( 0.22796, 0.22796 )
+
+[node name="StartButton" parent="Camera2D" instance=ExtResource( 5 )]
+margin_left = -55.878
+margin_top = -30.4226
+margin_right = 324.122
+margin_bottom = 87.5774
+rect_scale = Vector2( 0.3, 0.3 )
+
+[node name="NewRecord" parent="." instance=ExtResource( 4 )]
+margin_left = -29.8695
+margin_top = -207.183
+margin_right = 321.13
+margin_bottom = -88.1832
+rect_scale = Vector2( 0.45793, 0.45793 )
