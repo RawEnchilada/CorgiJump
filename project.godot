@@ -10,7 +10,7 @@ config_version=4
 
 [application]
 
-config/name="Dino Jump"
+config/name="CorgiJump"
 run/main_scene="res://Game.tscn"
 config/icon="res://icon.png"
 
