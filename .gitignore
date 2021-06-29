@@ -2,3 +2,5 @@
 .mono/
 .import/*
 .import/
+.vs/
+.vs/*

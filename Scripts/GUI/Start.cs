@@ -1,7 +1,7 @@
 using Godot;
 using System.Threading.Tasks;
 
-public class Start : CenterContainer
+public class Start : MarginContainer
 {
     static Label highscore;
     public override void _Ready()
@@ -13,6 +13,10 @@ public class Start : CenterContainer
     public void _on_Button_pressed(){
         GetNode<Player>("/root/Game/Player").StandUp();
         StartGame();
+    }
+    public void _on_Outfits_pressed(){
+        GetNode<MarginContainer>("/root/Game/Camera2D/Outfits").Visible = true;
+        this.Visible = false;
     }
 
     void StartGame()

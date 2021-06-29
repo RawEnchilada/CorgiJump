@@ -17,7 +17,7 @@ public class Highscore : HSplitContainer
 
     public override void _Process(float delta)
     {
-        if(counting && GUI.Playing){
+        if(counting){
             var time = OS.GetTicksMsec() - birthTime;
             if(time <= 2000){
                 MarginBottom++;

@@ -1,0 +1,172 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Scripts/GUI/Outfits.cs" type="Script" id=1]
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://Assets/upheavtt.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+size = 50
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 3 )
+
+[sub_resource type="DynamicFontData" id=5]
+font_path = "res://Assets/upheavtt.ttf"
+
+[sub_resource type="DynamicFont" id=6]
+size = 50
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 5 )
+
+[sub_resource type="DynamicFontData" id=7]
+font_path = "res://Assets/upheavtt.ttf"
+
+[sub_resource type="DynamicFont" id=8]
+size = 50
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 7 )
+
+[sub_resource type="DynamicFontData" id=9]
+font_path = "res://Assets/upheavtt.ttf"
+
+[sub_resource type="DynamicFont" id=10]
+size = 50
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 9 )
+
+[sub_resource type="DynamicFontData" id=11]
+font_path = "res://Assets/upheavtt.ttf"
+
+[sub_resource type="DynamicFont" id=12]
+size = 50
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 11 )
+
+[sub_resource type="DynamicFontData" id=13]
+font_path = "res://Assets/upheavtt.ttf"
+
+[sub_resource type="DynamicFont" id=14]
+size = 50
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 13 )
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Assets/upheavtt.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 1 )
+
+[node name="Outfits" type="MarginContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 297.0
+margin_bottom = 164.0
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
+margin_right = 297.0
+margin_bottom = 108.0
+columns = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/GridContainer"]
+margin_right = 85.0
+margin_bottom = 52.0
+
+[node name="Button" type="Button" parent="VBoxContainer/GridContainer/HBoxContainer"]
+margin_right = 72.0
+margin_bottom = 52.0
+custom_fonts/font = SubResource( 4 )
+text = "25"
+flat = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/GridContainer"]
+margin_left = 89.0
+margin_right = 174.0
+margin_bottom = 52.0
+
+[node name="Button" type="Button" parent="VBoxContainer/GridContainer/HBoxContainer2"]
+margin_right = 72.0
+margin_bottom = 52.0
+custom_fonts/font = SubResource( 6 )
+text = "40"
+flat = true
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/GridContainer"]
+margin_left = 178.0
+margin_right = 280.0
+margin_bottom = 52.0
+
+[node name="Button" type="Button" parent="VBoxContainer/GridContainer/HBoxContainer3"]
+margin_right = 72.0
+margin_bottom = 52.0
+custom_fonts/font = SubResource( 8 )
+text = "75"
+flat = true
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer/GridContainer"]
+margin_top = 56.0
+margin_right = 85.0
+margin_bottom = 108.0
+
+[node name="Button" type="Button" parent="VBoxContainer/GridContainer/HBoxContainer4"]
+margin_right = 85.0
+margin_bottom = 52.0
+custom_fonts/font = SubResource( 10 )
+text = "100"
+flat = true
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer/GridContainer"]
+margin_left = 89.0
+margin_top = 56.0
+margin_right = 174.0
+margin_bottom = 108.0
+
+[node name="Button" type="Button" parent="VBoxContainer/GridContainer/HBoxContainer5"]
+margin_right = 85.0
+margin_bottom = 52.0
+custom_fonts/font = SubResource( 12 )
+text = "160"
+flat = true
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="VBoxContainer/GridContainer"]
+margin_left = 178.0
+margin_top = 56.0
+margin_right = 280.0
+margin_bottom = 108.0
+
+[node name="Button" type="Button" parent="VBoxContainer/GridContainer/HBoxContainer6"]
+margin_right = 102.0
+margin_bottom = 52.0
+custom_fonts/font = SubResource( 14 )
+text = "250"
+flat = true
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+margin_top = 112.0
+margin_right = 297.0
+margin_bottom = 164.0
+custom_fonts/font = SubResource( 2 )
+text = "back"
+flat = true
+
+[connection signal="pressed" from="VBoxContainer/GridContainer/HBoxContainer/Button" to="." method="_Outfit_pressed" binds= [ 0 ]]
+[connection signal="pressed" from="VBoxContainer/GridContainer/HBoxContainer2/Button" to="." method="_Outfit_pressed" binds= [ 1 ]]
+[connection signal="pressed" from="VBoxContainer/GridContainer/HBoxContainer3/Button" to="." method="_Outfit_pressed" binds= [ 2 ]]
+[connection signal="pressed" from="VBoxContainer/GridContainer/HBoxContainer4/Button" to="." method="_Outfit_pressed" binds= [ 3 ]]
+[connection signal="pressed" from="VBoxContainer/GridContainer/HBoxContainer5/Button" to="." method="_Outfit_pressed" binds= [ 4 ]]
+[connection signal="pressed" from="VBoxContainer/GridContainer/HBoxContainer6/Button" to="." method="_Outfit_pressed" binds= [ 5 ]]
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_Back_pressed"]

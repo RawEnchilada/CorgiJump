@@ -4,13 +4,17 @@ using System;
 public class Player : KinematicBody2D
 {
     AnimatedSprite animation;
+    AnimatedSprite outfit = null;
     bool canJump = true;
     bool touched = false;
     const float jumpHeight = 100f;
+    int equipped = -1;
     public override void _Ready()
     {
         animation = GetChild<AnimatedSprite>(0);
         animation.Play("Idle");
+        outfit?.Play("Idle");
+        
     }
 
     public override void _Process(float delta)  {
@@ -20,14 +24,19 @@ public class Player : KinematicBody2D
             if(canJump && (Input.IsActionPressed("jump") || touched) && this.Position.y > -jumpHeight){
                 move.y = -speedMult; 
                 animation.Play("Jump"); 
+                outfit?.Play("Jump");
             }
             else if(this.Position.y >= 10f){
                 canJump = true;
                 animation.Play("Run");
+                outfit?.Play("Run");
+
             }
             else{
                 canJump = false;
                 animation.Play("Fall");
+                outfit?.Play("Fall");
+
             }
 
             MoveAndCollide(move);
@@ -42,19 +51,42 @@ public class Player : KinematicBody2D
         }
     }
 
+    
+
 
 
     public void StandUp(){
         animation.Play("Stand");
+        outfit?.Play("Stand");
     }
 
     public void Reset(){
         animation.Play("Idle");
+        outfit?.Play("Idle");
         this.Position = new Vector2(-50f,16f);
     }
 
     public void Stop(){
         animation.Stop();
+        outfit?.Stop();
+    }
+
+    public void EquipOutfit(PackedScene prefab,int num){
+        if(equipped == num){
+            UnEquip();
+        }
+        else{
+            animation.AddChild(prefab.Instance());
+            equipped = num;
+        }
+    }
+
+    void UnEquip(){
+        foreach (Node2D child in animation.GetChildren())
+        {
+            animation.RemoveChild(child);
+        }
+        equipped = -1;
     }
 
 }

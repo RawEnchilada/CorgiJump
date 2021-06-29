@@ -31,11 +31,10 @@ public class Ground : StaticBody2D
             decorations[i] = (Texture)ResourceLoader.Load(decorationPaths[i]);
         }
         obstacle = (PackedScene)ResourceLoader.Load("res://Prefabs/Obstacle.tscn");
-        /*int n = 0;
-        foreach (var layer in GetNode<Node2D>("/root/Game/Ground/Parallax").GetChildren())
-        {
-            parallax[n] = (Sprite)layer;
-        }*/
+        
+        #if DEBUG
+        GD.Print("Ground: Object loaded");
+        #endif
 
     }
 
@@ -49,6 +48,10 @@ public class Ground : StaticBody2D
                     segment.Position = (new Vector2(segmentSize*(segmentCount/2),0f));
                     ClearSegment(segment);
                     GenerateProps(segment);
+
+                    #if DEBUG
+                    GD.Print("Ground: Segment updated");
+                    #endif
                 }
             }
         }
@@ -61,15 +64,24 @@ public class Ground : StaticBody2D
             segment.AddChild(instance);
             instance.Translate(new Vector2(random.Next(-50,60),-52));
             instance.ZIndex = -2;
+
+            #if DEBUG
+            GD.Print("Ground: Obstacle placed");
+            #endif
         }
         else{
             placeObstacle = true;
-        }
+        }/*
         var sprite = new Sprite();
         sprite.Texture = decorations[random.Next(0,4)];
         segment.AddChild(sprite);
         sprite.Translate(new Vector2(random.Next(-72,72),random.Next(-100,-80)));
         sprite.ZIndex = -4;
+
+        #if DEBUG
+        GD.Print("Ground: Decoration placed");
+        #endif
+        */
     }
 
     void ClearSegment(Sprite segment){
@@ -78,6 +90,10 @@ public class Ground : StaticBody2D
             segment.RemoveChild(child);
             child.QueueFree();
         }
+
+        #if DEBUG
+        GD.Print("Ground: Segment cleared");
+        #endif
     }
 
     public void ClearAll(){
@@ -87,5 +103,9 @@ public class Ground : StaticBody2D
                 child.QueueFree();
             }
         }
+
+        #if DEBUG
+        GD.Print("Ground: All segments cleared");
+        #endif
     }
 }
