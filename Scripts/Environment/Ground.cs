@@ -17,7 +17,6 @@ public class Ground : StaticBody2D
 
     bool placeObstacle = true;
     Sprite[] grounds = new Sprite[segmentCount];
-    //Sprite[] parallax = new Sprite[10];
     Texture[] decorations = new Texture[decorationCount];
     PackedScene obstacle;
     public override void _Ready()
@@ -71,7 +70,7 @@ public class Ground : StaticBody2D
         }
         else{
             placeObstacle = true;
-        }/*
+        }
         var sprite = new Sprite();
         sprite.Texture = decorations[random.Next(0,4)];
         segment.AddChild(sprite);
@@ -81,7 +80,7 @@ public class Ground : StaticBody2D
         #if DEBUG
         GD.Print("Ground: Decoration placed");
         #endif
-        */
+        
     }
 
     void ClearSegment(Sprite segment){

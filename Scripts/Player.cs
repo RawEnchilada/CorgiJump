@@ -75,17 +75,28 @@ public class Player : KinematicBody2D
         if(equipped == num){
             UnEquip();
         }
-        else{
-            animation.AddChild(prefab.Instance());
+        else if(equipped != -1){
+            UnEquip();
+            outfit = prefab.Instance<AnimatedSprite>();
+            animation.AddChild(outfit);
             equipped = num;
+            animation.Frame = 0;
+            outfit.Frame = 0;
+            outfit.Play("Idle");
+        }
+        else{
+            outfit = prefab.Instance<AnimatedSprite>();
+            animation.AddChild(outfit);
+            equipped = num;
+            animation.Frame = 0;
+            outfit.Frame = 0;
+            outfit.Play("Idle");
         }
     }
 
     void UnEquip(){
-        foreach (Node2D child in animation.GetChildren())
-        {
-            animation.RemoveChild(child);
-        }
+        animation.RemoveChild(outfit);
+        outfit.QueueFree();
         equipped = -1;
     }
 
