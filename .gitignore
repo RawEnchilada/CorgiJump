@@ -4,3 +4,5 @@
 .import/
 .vs/
 .vs/*
+Release/*
+Release/
