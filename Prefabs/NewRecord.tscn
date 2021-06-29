@@ -7,7 +7,6 @@
 code = "shader_type canvas_item;
 render_mode blend_mix;
 
-
 void vertex(){
 	VERTEX.y += (sin(float(TIME*2.0f)+VERTEX.x/2.0f)-0.5f);
 }

@@ -1,6 +1,5 @@
 using Godot;
 using System;
-using System.Threading.Tasks;
 
 public class GUI : MarginContainer
 {
@@ -11,11 +10,14 @@ public class GUI : MarginContainer
         get{return score;}
     }
     static bool playing = false;
+    static bool doReset = false;
+    static uint resetRequest = 0;
     public static bool Playing{
         set{
             playing = value;
             if(!value){
-                Task.Delay(1000).ContinueWith(t=> Reset()); 
+                doReset = true;
+                resetRequest = OS.GetTicksMsec();
             }
 
         }
@@ -31,6 +33,15 @@ public class GUI : MarginContainer
         counter.Text = " ";
         LoadGame();
 
+    }
+
+    public override void _Process(float delta)
+    {
+        if(doReset){
+            if(OS.GetTicksMsec()-resetRequest > 1000)
+                Reset();
+            
+        }
     }
 
 
@@ -54,6 +65,7 @@ public class GUI : MarginContainer
         Obstacle.max = 10;
         counter.GetNode<Player>("/root/Game/Player").Reset();
         SaveGame();
+        doReset = false;
     }
 
     static void NewHighscore(){
